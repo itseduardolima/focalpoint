@@ -6,7 +6,7 @@
 
 .label {
   font-size: 14px;
-  color: #000000d9;
+  color: black;
   margin-bottom: 8px;
 }
 
@@ -15,5 +15,5 @@
   padding: 16px;
   gap: 16px;
   border-radius: 8px;
-  border: 1px solid #d7dde9;
+  border: 1px solid var(--border-color);
 }

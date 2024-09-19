@@ -1,6 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --border-color: #d7dde9;
+  --text-muted: #0000008a; 
 }
 
 html,
@@ -12,7 +15,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter-tight);
 }
 
 * {
