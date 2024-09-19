@@ -8,20 +8,30 @@ import Modal from "../Modal";
 import { initialTasks } from "@/mock/taskData";
 import { Input } from "../Input";
 
-const getInitialTasks = (): Task[] => {
-  const savedTasks = localStorage.getItem("tasks");
-  return savedTasks ? JSON.parse(savedTasks) : initialTasks;
-};
+const isBrowser = typeof window !== "undefined";
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState<Task[]>(getInitialTasks);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
   const [newTaskTitle, setNewTaskTitle] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    if (isBrowser) {
+      const savedTasks = localStorage.getItem("tasks");
+      if (savedTasks) {
+        setTasks(JSON.parse(savedTasks));
+      } else {
+        setTasks(initialTasks);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isBrowser && tasks.length > 0) {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
   }, [tasks]);
 
   const handleAddTask = () => {
@@ -71,15 +81,7 @@ const TaskList = () => {
                     type="checkbox"
                     className="custom-checkbox"
                     checked={task.completed}
-                    onChange={() =>
-                      setTasks(
-                        tasks.map((t) =>
-                          t.id === task.id
-                            ? { ...t, completed: !t.completed }
-                            : t
-                        )
-                      )
-                    }
+                    onChange={() => toggleTaskCompletion(task.id)}
                   />
                   <span>{task.title}</span>
                 </div>
