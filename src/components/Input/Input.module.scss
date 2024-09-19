@@ -1,0 +1,19 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.label {
+  font-size: 14px;
+  color: #000000d9;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 386px;
+  padding: 16px;
+  gap: 16px;
+  border-radius: 8px;
+  border: 1px solid #d7dde9;
+}
