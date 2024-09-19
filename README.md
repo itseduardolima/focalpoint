@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FocalPoint - Gerenciamento de Tarefas
 
-## Getting Started
+FocalPoint é uma aplicação web simples para gerenciamento de tarefas (To-Do List). Ela permite que os usuários criem, completem e deletem tarefas, oferecendo uma interface amigável e intuitiva. O objetivo principal da aplicação é ajudar os usuários a organizarem suas atividades diárias de forma eficiente.
 
-First, run the development server:
+A aplicação foi construída com Next.js e utiliza o Local Storage para persistência de dados, permitindo que as tarefas do usuário sejam salvas mesmo após a atualização ou fechamento da página.
+
+## Funcionalidades
+
+### Adicionar Tarefas
+
+Os usuários podem adicionar novas tarefas através de um modal. Cada tarefa tem um título.
+
+### Marcar como Concluída
+
+Tarefas podem ser marcadas como concluídas clicando na caixa de seleção (checkbox). Tarefas concluídas são movidas para a seção "Tarefas Finalizadas".
+
+### Deletar Tarefas
+
+Usuários podem deletar tarefas selecionadas clicando no ícone de lixeira.
+
+### Persistência de Tarefas
+
+As tarefas são salvas no Local Storage, garantindo que as atividades permaneçam após recarregamentos da página.
+
+## Tecnologias Utilizadas
+
+- **Next.js:** Framework React para construção da interface.
+- **TypeScript:** Linguagem para tipagem estática do JavaScript, garantindo maior robustez no desenvolvimento.
+- **Sass Css:** Utilizado para modularização de estilos, garantindo escopo local para os componentes.
+- **Local Storage:** Utilizado para salvar as tarefas no navegador, proporcionando persistência de dados entre sessões.
+
+## Estrutura da Aplicação
+
+- **TaskList:** Componente que exibe a lista de tarefas, permitindo a interação com as tarefas (adicionar, completar, deletar).
+- **Modal:** Componente reutilizável de modal, usado para adicionar tarefas ou exibir a confirmação de exclusão.
+- **Button:** Componente reutilizável para botões, com variantes de estilo (primary, cancel, delete).
+- **Local Storage:** Utilizado para salvar as tarefas no navegador, proporcionando persistência de dados entre sessões.
+
+## Instalação e Configuração
+
+### Requisitos
+
+- Node.js
+
+### Instale as dependências:
+
+1. Clone esse repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/itseduardolima/focalpoint.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Abra a pasta do projeto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd focalpoint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Instale a dependências
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 Link do Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Acesse o projeto ao vivo através do link: [Deploy do Projeto](https://focalpoint-tasks.vercel.app/)
